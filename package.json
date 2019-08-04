@@ -1,0 +1,42 @@
+{
+  "name": "tezosrest",
+  "version": "0.3.0",
+  "description": "backend rest api wallet app tezos",
+  "engines": {
+    "node": "10.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "conseiljs": "^0.2.6",
+    "cors": "^2.8.5",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "mysql": "^2.17.1",
+    "promise": "^8.0.3",
+    "redoc": "^2.0.0-rc.10",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "swagger-jsdoc": "^3.3.0",
+    "swagger-ui-express": "^4.0.7"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/node-js-getting-started"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
