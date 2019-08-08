@@ -10,6 +10,47 @@ const PORT = process.env.PORT || 5000
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))*/
   
 
+//const swaggerJSDoc = require('swagger-jsdoc');
+const express = require('express'); // objet Express
+let mysql = require('mysql');
+let session = require('express-session');
+const bodyParser = require('body-parser');
+const request = require('request');
+const app = express();
+const connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'freelancertech',
+    password : 'freelancertech',
+    database : 'weather_app_bd'
+});  //initialisation et connection retour objet connexion
+const apiKey ="199474e86b5183778fb2bbfed2d8224d";
+var cors = require('cors');
+app.use(cors());
+app.use(express.static('public'));
+app.use(express.static('views'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({
+    strict: false,
+  })); // permettre de recevoir les objets JSOn via le post
+
+  //creation d'un objet session
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
+
+let reponse = {
+    status:0,
+    message:'',
+    pkh:'',
+    balance:0
+}
+
+
+app.set('view engine', 'ejs')
+
+
 
 const conseiljs = require('conseiljs');
 let alphanetFaucetAccount = {
@@ -130,48 +171,6 @@ async function sendTransaction() {
         resolve(resultReponse);
       })
 }
-
-//const swaggerJSDoc = require('swagger-jsdoc');
-const express = require('express'); // objet Express
-let mysql = require('mysql');
-let session = require('express-session');
-const bodyParser = require('body-parser');
-const request = require('request');
-const app = express();
-const connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'freelancertech',
-    password : 'freelancertech',
-    database : 'weather_app_bd'
-});  //initialisation et connection retour objet connexion
-const apiKey ="199474e86b5183778fb2bbfed2d8224d";
-var cors = require('cors');
-app.use(cors());
-app.use(express.static('public'));
-app.use(express.static('views'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({
-    strict: false,
-  })); // permettre de recevoir les objets JSOn via le post
-
-  //creation d'un objet session
-app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-}));
-
-let reponse = {
-    status:0,
-    message:'',
-    pkh:'',
-    balance:0
-}
-
-
-app.set('view engine', 'ejs')
-
-
 
 
 
@@ -705,6 +704,6 @@ app.get('/', (req, res) => res.render('pages/index'))
 
 
 app.listen(PORT, function () {
-    console.log(`application en cours a l'adresse 127.0.0.1:3000`)
+    console.log(`application en cours a l'adresse 127.0.0.1:5000`)
 })
 

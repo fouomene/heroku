@@ -21,9 +21,7 @@
     "promise": "^8.0.3",
     "redoc": "^2.0.0-rc.10",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4",
-    "swagger-jsdoc": "^3.3.0",
-    "swagger-ui-express": "^4.0.7"
+    "request-promise": "^4.2.4"
   },
   "devDependencies": {
     "request": "^2.81.0",
